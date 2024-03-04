@@ -6346,8 +6346,7 @@ static inline bool task_fits_max(struct task_struct *p, int cpu)
 	if (capacity == max_capacity)
 		return true;
 
-		if ((task_boost_policy(p) == SCHED_BOOST_ON_BIG && 
-			is_min_capacity_cpu(cpu)) || uclamp_boosted(p) > 10)
+	if (task_boost_policy(p) == SCHED_BOOST_ON_BIG)
 		return false;
 
 	return __task_fits(p, cpu, 0);
