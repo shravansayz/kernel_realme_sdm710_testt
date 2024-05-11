@@ -2122,8 +2122,7 @@ static int __write_data_page(struct page *page, bool *submitted,
 		 * don't drop any dirty dentry pages for keeping lastest
 		 * directory structure.
 		 */
-		if (S_ISDIR(inode->i_mode) &&
-				!is_sbi_flag_set(sbi, SBI_IS_CLOSE))
+		if (S_ISDIR(inode->i_mode))
 			goto redirty_out;
 		goto out;
 	}
